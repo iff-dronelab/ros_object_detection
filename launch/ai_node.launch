@@ -1,0 +1,15 @@
+<launch>
+    <!-- parameters -->
+    <arg name="in_img_topic" default="/image_in" doc="Incoming image topic"/>
+    <arg name="in_geo_img_topic" default="/geo_image_in" doc="Incoming Geo image topic"/>
+    <arg name="out_img_topic" default="/image_detected" doc="Outgoing Image Topic"/>
+    <arg name="out_geo_img_topic" default="/geo_image_detected" doc="Outgoing Image Topic"/>
+
+    <!-- node -->
+	<node pkg="ai_node" type="ai_node.py" name="ai_detector" output="screen" >
+		<param name="in_img_topic" value="$(arg in_img_topic)"/>
+		<param name="in_geo_img_topic" value="$(arg in_geo_img_topic)"/>
+		<param name="out_img_topic" value="$(arg out_img_topic)"/>
+		<param name="out_geo_img_topic" value="$(arg out_geo_img_topic)"/>
+	</node>
+</launch>
